@@ -1,4 +1,5 @@
 <?php
+
 //turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -21,9 +22,12 @@ $f3-> route('GET|POST /order', function($f3) {
     //check if the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Validate the data
-        if (empty($_POST['pet'])) {
+        var_dump($_POST);
+
+        $pets = array('Red', 'Blue', 'Green', 'Yellow');
+        if (empty($_POST['pet']) || !in_array($_POST['pets'], $pets)) {
             //data is invalid
-            echo "Please supply a pet type";
+            echo "Please supply a pet type and color.";
         } else {
             $_SESSION['pet'] = $_POST['pet'];
             $_SESSION['pets'] = $_POST['pets'];
@@ -32,6 +36,7 @@ $f3-> route('GET|POST /order', function($f3) {
 
             //Redirect to the summary route
             $f3->reroute("summary");
+            session_destroy();
         }
     }
 
@@ -40,8 +45,8 @@ $f3-> route('GET|POST /order', function($f3) {
 });
 
 $f3->route('GET|POST /summary', function(){
-    echo "chz";
-    echo "<p>" . $_SESSION['pet'] . $_SESSION['pets'] . "</p>";
+    //echo "Thank You!";
+    //echo "<p>" . $_SESSION['pet'] . $_SESSION['pets'] . "</p>";
     $view = new Template();
     echo $view->render('views/summary.html');
 });
