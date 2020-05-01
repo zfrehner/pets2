@@ -1,0 +1,16 @@
+{
+  "name": "zfrehner/328/pets2",
+  "authors": [
+    {
+      "name": "Zach Frehner",
+      "email": "zfrehner@mail.greenriver.com"
+    },
+    {
+      "name": "Roldan Barbante",
+      "email": "rbarbante@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
