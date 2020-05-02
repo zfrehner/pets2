@@ -25,11 +25,11 @@ $f3-> route('GET|POST /order', function($f3) {
         var_dump($_POST);
 
         $color = array('Red', 'Blue', 'Green', 'Yellow');
-        if (empty($_POST['pet']|| !in_array($_POST['color'], $color))) {
+        if (empty($_POST['pet'] && !in_array($_POST['color'], $color))) {
             //data is invalid
             echo "Please supply a pet type and color.";
         } else {
-            $_SESSION['candy'] = $_POST['color'] . $_POST['pet'];
+            $_SESSION['pet'] = $_POST['color'] . " " . $_POST['pet'];
 
 
             //***Add the color to the session
@@ -44,7 +44,7 @@ $f3-> route('GET|POST /order', function($f3) {
     echo $view->render("views/order.html");
 });
 
-$f3->route('GET|POST /summary', function(){
+$f3->route('GET|POST /summary', function() {
     $view = new Template();
     echo $view->render('views/summary.html');
 });
