@@ -8,7 +8,7 @@
 <div class="container">
     <h1>Pet Order</h1>
 
-    <form action="#" method="post" class="form-horizontal">
+    <form action="summary" method="post" class="form-horizontal">
 
         <!-- get food -->
         <div class="form-group">
@@ -20,13 +20,13 @@
         </div>
 
         <!-- get pet -->
-        <label for="pets">Choose a color:</label>
+        <label class="col-sm-2" for="color">Choose a color:</label>
 
-        <select id="pets">
-            <option value="red" name="pets">Red</option>
-            <option value="blue" name="pets">Blue</option>
-            <option value="green" name="pets">Green</option>
-            <option value="yellow" name="pets">Yellow</option>
+        <select class="form-control" id="color" name="color">
+            <option value="red" >Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
         </select>
 
         <div class="col-xs-3 ">
